@@ -1,0 +1,98 @@
+//Import Foundation SASS
+@import "../node_modules/foundation-sites/scss/foundation";
+@import "../node_modules/motion-ui/motion-ui.scss";
+html {
+	@include foundation-everything;
+	font-size: $global-font-size;
+}
+
+header{
+	@include xy-grid-container(75rem, rem-calc(20));
+	margin: rem-calc(20px 0 40px 15px);
+
+	h1 {
+		line-height: 0.95;
+		margin-bottom: rem-calc(40px);
+	}
+
+	.organization {
+		font-family: $header-font-family;
+		font-style: italic;
+		font-size: 1.25rem;
+	}
+}
+.filter {
+	@include xy-grid-container(40rem, rem-calc(20));
+
+	margin-bottom:rem-calc(40px);
+
+	@include breakpoint(large){
+		@include xy-grid-container(65rem, rem-calc(20));
+	}
+
+
+	&__reveal {
+		font-size: rem-calc(20px);
+		cursor: pointer;
+		margin-bottom: rem-calc(40px);
+		&::before {
+			content:"+ ";
+		}
+		&.open {
+			&::before {
+				content:"- ";
+			}
+		}
+	}
+
+	&__list {
+		overflow: hidden;
+
+		&__tags {
+			display: none;
+		}
+	}
+
+	button {
+		@include button(false, get-color(accentblue), lighten(get-color(accentblue), 10%), $secondary-color, solid);
+
+		&.active {
+			background-color: lighten(get-color(accentblue), 10%);
+		}
+	}
+}
+.repository {
+	@include xy-grid-container(40rem, rem-calc(20));
+
+	@include breakpoint(large){
+		@include xy-grid-container(65rem, rem-calc(20));
+	}
+
+	&__table {
+		@include xy-grid(vertical, false);
+
+		&__card {
+			border-left: rem-calc(8px) solid get-color(accentpeach);
+			background-color: $white;
+			border-radius: 0 3px 3px 0;
+			margin-bottom: rem-calc(60px);
+			padding: 1.5rem .75rem;
+
+			@include breakpoint(medium){
+				padding: 1.5rem 2rem;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+
+			h3 {
+				margin-bottom: rem-calc(40px);
+			}
+
+			.tags {
+				font-style: italic;
+			}
+		}
+	}
+}
