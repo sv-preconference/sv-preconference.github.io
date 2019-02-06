@@ -1,8 +1,6 @@
 //Import Foundation SASS
 @import "../node_modules/foundation-sites/scss/foundation";
 @import "../node_modules/motion-ui/motion-ui.scss";
-@import "include_media";
-
 html {
 	@include foundation-everything;
 	font-size: $global-font-size;
@@ -28,7 +26,7 @@ header{
 
 	margin-bottom:rem-calc(40px);
 
-	@include media('>1024px'){
+	@include breakpoint(large){
 		@include xy-grid-container(65rem, rem-calc(20));
 	}
 
@@ -66,7 +64,7 @@ header{
 .repository {
 	@include xy-grid-container(40rem, rem-calc(20));
 
-	@include media('>740px'){
+	@include breakpoint(large){
 		@include xy-grid-container(65rem, rem-calc(20));
 	}
 
@@ -80,7 +78,7 @@ header{
 			margin-bottom: rem-calc(60px);
 			padding: 1.5rem .75rem;
 
-			@include media('>1024px'){
+			@include breakpoint(medium){
 				padding: 1.5rem 2rem;
 			}
 
