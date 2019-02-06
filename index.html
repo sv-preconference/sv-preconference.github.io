@@ -31,7 +31,7 @@ title: Research Repository
 		<div class="repository__table">
 			{% for article in site.data.articles %}
 				<article class="repository__table__card" data-tags="{{article.tags}}">
-					<h3><a href="/assets/articles/"{{article.file-name}}>{{article.title}}</a></h3>
+					<h3><a href="/assets/articles/{{article.file-name}}">{{article.title}}</a></h3>
 					<p class="tags">Tags: {{article.tags}}</p>
 					<p>{{article.abstract}}</p>
 				</article>
