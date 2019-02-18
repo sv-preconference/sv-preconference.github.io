@@ -1,0 +1,18 @@
+---
+layout: default
+organization: SPSP Sexual Violence Preconference
+title: Research Repository
+---
+<section class="directory">
+		{% for person in site.data.people %}
+			<article class="directory__card" data-interests="{{person.interests}}">
+				<h3>{{person.name}}</h3>
+				<ul class="contact-list">
+					<li><span class="contact-list__label">Email:</span> <a href="mailto:{{person.email}}">{{person.email}}</a></li>
+					{% if person.url %}
+					<li><span class="contact-list__label">Website:</span> <a href="{{person.url}}">{{person.url}}</a></li>
+					{% endif %}
+				</ul>
+			</article>
+		{% endfor %}
+</section>

@@ -1,8 +1,29 @@
 //Import Foundation SASS
 @import "../node_modules/foundation-sites/scss/foundation";
 @import "../node_modules/motion-ui/motion-ui.scss";
+@include foundation-everything;
+
+@mixin card-style {
+	border-left: rem-calc(8px) solid get-color(accentpeach);
+	background-color: $white;
+	border-radius: 0 3px 3px 0;
+	margin-bottom: rem-calc(60px);
+	padding: 1.5rem .75rem;
+
+	@include breakpoint(medium){
+		padding: 1.5rem 2rem;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	h3 {
+		margin-bottom: rem-calc(40px);
+	}
+}
+
 html {
-	@include foundation-everything;
 	font-size: $global-font-size;
 }
 
@@ -92,6 +113,38 @@ header{
 
 			.tags {
 				font-style: italic;
+			}
+		}
+	}
+}
+.directory {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+
+	margin: 0 rem-calc(20px 40px);
+
+	&__card {
+		@include card-style;
+
+		flex-basis: 100%;
+		margin: 0 rem-calc(20px 40px);
+
+		@include breakpoint(large){
+			flex-basis: 31%
+		}
+
+		.contact-list {
+			margin: 0;
+			list-style-type: none;
+
+			li {
+				line-height: 1.5;
+			}
+
+			&__label {
+				font-weight: 600;
 			}
 		}
 	}
