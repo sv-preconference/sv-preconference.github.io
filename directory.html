@@ -3,6 +3,17 @@ layout: default
 organization: SPSP Sexual Violence Preconference
 title: Participant Directory
 ---
+<section class="filter">
+	<div class="filter__reveal" data-toggle="filter__list__tags" data-revealed="false">Reveal Filters</div>
+	<div class="filter__list">
+		<div id="filter__list__tags" class="filter__list__tags" data-toggler data-animate="slide-in-down slide-out-up">
+			<button class="tag__button" data-tag="all">Show All</button>
+			{% for interest in site.data.interests %}
+			<button class="tag__button" data-tag="{{interest.label}}">{{interest.label}}</button>
+			{% endfor %}
+		</div>
+	</div>
+</section>
 <section class="directory">
 		{% for person in site.data.people %}
 			<article class="directory__card" data-interests="{{person.interests}}">
@@ -16,3 +27,32 @@ title: Participant Directory
 			</article>
 		{% endfor %}
 </section>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(document).foundation();
+
+		$('.filter__reveal').click(function(e) {
+			$( this ).toggleClass('open');				
+		});
+
+		$('.tag__button').click( function(e){
+
+			var tag = $( this ).data('tag');
+
+			if ( tag === 'all'){
+				$('.directory__card').fadeIn('slow');
+			} else {
+				$('.directory__card').each( function(){
+					var tags = $( this ).data('interests');
+					if ( tags.indexOf(tag) < 0 ){
+						$(this).fadeOut('slow');
+					} else if ( tags.indexOf(tag) >= 0 ){
+						$(this).fadeIn('slow');
+					}
+				} );
+			}
+
+		} );
+
+	});
+</script>
